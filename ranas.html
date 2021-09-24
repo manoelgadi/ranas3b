@@ -47,6 +47,10 @@
 				var aux = document.getElementById(id_num-1).src;
 				document.getElementById(id_num-1).src = elemento.src;
 				elemento.src=aux;	
+			} else if(elemento.src.includes('L.png')){
+				var aux = document.getElementById(id_num+1).src;
+				document.getElementById(id_num+1).src = elemento.src;
+				elemento.src=aux;	
 			}
 			// Falta implementar parte de la lógica.
 

@@ -44,15 +44,29 @@
 			var id_num = parseInt(elemento.id, 10);
 
 			if(elemento.src.includes('R.png')){
-				var aux = document.getElementById(id_num-1).src;
-				document.getElementById(id_num-1).src = elemento.src;
-				elemento.src=aux;	
+				if(id_num-1>=0 && document.getElementById(id_num-1).src.includes('B.png')){
+					destino = id_num-1;
+				} else if(id_num-2>=0 && document.getElementById(id_num-2).src.includes('B.png')){
+					destino = id_num-2;
+				}
+				if (destino>=0){
+					var aux = document.getElementById(destino).src;
+					document.getElementById(destino).src = elemento.src;
+					elemento.src=aux;	
+				}
 			} else if(elemento.src.includes('L.png')){
-				var aux = document.getElementById(id_num+1).src;
-				document.getElementById(id_num+1).src = elemento.src;
-				elemento.src=aux;	
+				if(id_num+1<7 && document.getElementById(id_num+1).src.includes('B.png')){
+					destino = id_num+1;
+				} else if(id_num+2<7 && document.getElementById(id_num+2).src.includes('B.png')){
+					destino = id_num+2;
+				}
+				if (destino>=0){
+					var aux = document.getElementById(destino).src;
+					document.getElementById(destino).src = elemento.src;
+					elemento.src=aux;	
+				}
 			}
-			// Falta implementar parte de la lógica.
+
 
 //			elemento.width *=2;
 //			elemento.height *=2;

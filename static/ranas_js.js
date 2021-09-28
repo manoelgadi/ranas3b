@@ -33,13 +33,25 @@ function mueverana(elemento){
 			//console.log(err.message);
 		}
 	}
+}
 
-	// Falta implementar parte de la lógica.
-
-//			elemento.width *=2;
-//			elemento.height *=2;
+function cambia_ranas(i,j){
+	var aux = document.getElementById(i).src;
+	document.getElementById(i).src = document.getElementById(j).src;
+	document.getElementById(j).src=aux;		
 }
 
 function aleatoriza_ranas(){
+	var destino;
+	for (var origen=0;origen<=6;origen++){
+		destino = Math.floor(Math.random()*7)
+		while(origen == destino || destino == 7){
+			destino = Math.floor(Math.random()*7)
+		}
+		cambia_ranas(origen,destino);
+	}
+}
+
+function deshacer_ultimo(){
 	
 }

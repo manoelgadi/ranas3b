@@ -1,5 +1,7 @@
+var movimientos = [];
+
 function mueverana(elemento){
-	//alert('Cambio 9:52');
+	//alert('Cambio 10:33');
 	var id_num = parseInt(elemento.id, 10), destino = -1;
 
 	if(elemento.src.includes('R.png')){
@@ -13,9 +15,10 @@ function mueverana(elemento){
 			destino = id_num-2;
 		}
 		if (destino>=0){
-			var aux = document.getElementById(destino).src;
-			document.getElementById(destino).src = elemento.src;
-			elemento.src=aux;	
+			cambia_ranas(elemento.id, destino);
+//			var aux = document.getElementById(destino).src;
+//			document.getElementById(destino).src = elemento.src;
+//			elemento.src=aux;	
 		}
 	} else if(elemento.src.includes('L.png')){
 		try { //Resulve a posteriori - como una cirugia
@@ -25,9 +28,10 @@ function mueverana(elemento){
 				destino = id_num+2;
 			}
 			if (destino>=0){
-				var aux = document.getElementById(destino).src;
-				document.getElementById(destino).src = elemento.src;
-				elemento.src=aux;	
+				cambia_ranas(elemento.id, destino);
+//				var aux = document.getElementById(destino).src;
+//				document.getElementById(destino).src = elemento.src;
+//				elemento.src=aux;	
 			}
 		} catch (err){
 			//console.log(err.message);
@@ -38,7 +42,8 @@ function mueverana(elemento){
 function cambia_ranas(i,j){
 	var aux = document.getElementById(i).src;
 	document.getElementById(i).src = document.getElementById(j).src;
-	document.getElementById(j).src=aux;		
+	document.getElementById(j).src=aux;	
+	movimientos.push([i,j]);
 }
 
 function aleatoriza_ranas(){
@@ -53,5 +58,7 @@ function aleatoriza_ranas(){
 }
 
 function deshacer_ultimo(){
-	
+	a = movimientos.pop();
+	cambia_ranas(a[0],a[1]);
+	movimientos.splice(-1);
 }

@@ -91,24 +91,27 @@ function chequea_bloqueo(){
 	}
 }
 
+var tiempo_para_esperar=0;
+function cambia_ranas_retrasado(i,j,loggea){
+	tiempo_para_esperar = 1000;
+	setTimeout(cambia_ranas,tiempo_para_esperar,i,j,loggea);	
+}
 
 function resuelve_hardcoded(){
-// EJERCICIO - HACER CON QUE LOS MOVIMIENTOS DE LAS RANAS SE VEAN EN SECUENCIA.
-// PISTA: USAR setTimeout( FUNCIÓN , TIEMPO) Y PASAR UNA FUNCIÓN ANÓNIMA (LAMBDA) DE JS: () => {}
-// PREGUNTA: Pensar en porque no tiene sentido usar un sleep en JavaScript?
-	cambia_ranas(2,3, loggea=1);
-	cambia_ranas(4,2, loggea=1);
-	cambia_ranas(5,4, loggea=1);
-	cambia_ranas(3,5, loggea=1);
-	cambia_ranas(1,3, loggea=1);
-	cambia_ranas(0,1, loggea=1);
-	cambia_ranas(2,0, loggea=1);
-	cambia_ranas(4,2, loggea=1);
-	cambia_ranas(6,4, loggea=1);
-	cambia_ranas(5,6, loggea=1);	
-	cambia_ranas(3,5, loggea=1);
-	cambia_ranas(1,3, loggea=1);
-	cambia_ranas(2,1, loggea=1);
-	cambia_ranas(4,2, loggea=1);
-	cambia_ranas(3,4, loggea=1);	
+	cambia_ranas_retrasado(2,3, loggea=1);
+	cambia_ranas_retrasado(4,2, loggea=1);
+	cambia_ranas_retrasado(5,4, loggea=1);
+	cambia_ranas_retrasado(3,5, loggea=1);
+	cambia_ranas_retrasado(1,3, loggea=1);
+	cambia_ranas_retrasado(0,1, loggea=1);
+	cambia_ranas_retrasado(2,0, loggea=1);
+	cambia_ranas_retrasado(4,2, loggea=1);
+	cambia_ranas_retrasado(6,4, loggea=1);
+	cambia_ranas_retrasado(5,6, loggea=1);	
+	cambia_ranas_retrasado(3,5, loggea=1);
+	cambia_ranas_retrasado(1,3, loggea=1);
+	cambia_ranas_retrasado(2,1, loggea=1);
+	cambia_ranas_retrasado(4,2, loggea=1);
+	cambia_ranas_retrasado(3,4, loggea=1);	
+	tiempo_para_esperar=0;
 }

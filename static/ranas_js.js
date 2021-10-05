@@ -69,10 +69,34 @@ function deshace_ultimo(){
 }
 
 function confirma_victoria(){
-	if(document.getElementById(0).src.includes('R.png') &&
-		document.getElementById(1).src.includes('R.png') &&
-		document.getElementById(2).src.includes('R.png') &&
-		document.getElementById(3).src.includes('B.png')){
+	var ranas_correctas = 0;
+
+	if (document.getElementById(0).src.includes('R.png')){
+		ranas_correctas++;
+		if (document.getElementById(1).src.includes('R.png')){
+			ranas_correctas++;
+			if (document.getElementById(2).src.includes('R.png')){
+				ranas_correctas++;
+			}		
+		}
+	}
+
+	if (document.getElementById(6).src.includes('L.png')){
+		ranas_correctas++;
+		if (document.getElementById(5).src.includes('L.png')){
+			ranas_correctas++;
+			if (document.getElementById(4).src.includes('L.png')){
+				ranas_correctas++;
+			}		
+		}
+	}
+	
+	
+	
+	document.getElementById('contador').innerHTML = ranas_correctas;
+	
+
+	if(ranas_correctas == 6){
 		document.getElementById('mensaje').innerHTML = 'has ganado!';
 		return true;
 	} else {
@@ -93,7 +117,7 @@ function chequea_bloqueo(){
 
 var tiempo_para_esperar=0;
 function cambia_ranas_retrasado(i,j,loggea){
-	tiempo_para_esperar = 1000;
+	tiempo_para_esperar += 1000;
 	setTimeout(cambia_ranas,tiempo_para_esperar,i,j,loggea);	
 }
 
